@@ -22,6 +22,8 @@ Each position and velocity should have length n_bits, see \code{\link[=get]{get(
 
 \item{\code{boundary_velocity}}{numeric (2 values),
 describing the boundaries of the velocity}
+
+\item{\code{generator}}{the Object to generate the particles}
 }
 \if{html}{\out{</div>}}
 }

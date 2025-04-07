@@ -1,6 +1,7 @@
 # Particle ----------------------------------------------------------------
 
 #' R6 Object Representing a Particle for the BAOA algorithm
+#' @export
 R6::R6Class("ParticleBAOA",
             inherit = Particle) -> ParticleBAOA
 
@@ -11,7 +12,7 @@ R6::R6Class("ParticleBAOA",
 #'
 #' @description
 #' The Swarm based on the Binary Arithmetic Optimizer Algorithm with
-#'
+#' @export
 R6::R6Class("SwarmBAOA",
             inherit = BinarySwarm,
             public = list(

@@ -4,7 +4,7 @@
 #' Abstract base class for a Binary Swarm
 #'
 #' @import R6
-#'
+#' @export
 R6::R6Class("BinarySwarm",
             public = list(
               #' @field population_size integer, size of population

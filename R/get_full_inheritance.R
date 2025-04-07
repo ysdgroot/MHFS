@@ -11,7 +11,7 @@ get_full_inheritance <- function(R6ClassGenerator){
     return(NULL)
   }
 
-  if(is(R6ClassGenerator, "R6ClassGenerator")){
+  if(!is(R6ClassGenerator, "R6ClassGenerator")){
     stop("Object needs to be an R6ClassGenerator")
   }
   parent_obj <- R6ClassGenerator$get_inherit()

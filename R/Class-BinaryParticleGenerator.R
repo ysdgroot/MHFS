@@ -4,7 +4,7 @@
 #'
 #' @description
 #' Abstract class for a wrapper making particles for a Binary Swarm
-#'
+#' @export
 R6::R6Class("BPG",
             public = list(
               #' @field chance_bit numeric between 0 and 1
@@ -12,7 +12,8 @@ R6::R6Class("BPG",
               chance_bit = NULL,
               #' @field suggestions NULL or list with possible positions
               suggestions = NULL,
-
+              #' @field generator the Object to generate the particles
+              generator = NULL,
               #' @description
               #' Creation of a Binary Particle Generator
               #'
@@ -22,6 +23,7 @@ R6::R6Class("BPG",
               #' @param suggestions NULL or list with possible starting positions
               #'
               #' @return NULL
+              #' @export
               initialize = function(generator,
                                     chance_bit = 0.5,
                                     suggestions = NULL){
@@ -107,15 +109,13 @@ R6::R6Class("BPG",
               }
               return(all_ok)
             }
-            ),
-            private = list(generator = NULL)
-            ) -> BPG
+            )) -> BPG
 
 #' @title Binary Particle Generator-Velocity (BPG-Velocity)
 #'
 #' @description
 #' Abstract class for a wrapper making particles for a Binary Swarm with Velocity
-#'
+#' @export
 R6::R6Class("BPG-Velocity",
             inherit = BPG,
             public = list(
@@ -130,6 +130,8 @@ R6::R6Class("BPG-Velocity",
               #' @field boundary_velocity numeric (2 values),
               #' describing the boundaries of the velocity
               boundary_velocity = NULL,
+              #' @field generator the Object to generate the particles
+              generator = NULL,
               #' @description
               #' initialize the Binary Particle Generator with Velocity
               #'
@@ -238,8 +240,4 @@ R6::R6Class("BPG-Velocity",
                 }
                 return(all_ok)
               }
-              ),
-            private = list(
-              generator = NULL
-              )
-            ) -> BPG_Velocity
+              ) ) -> BPG_Velocity

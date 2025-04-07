@@ -13,6 +13,8 @@ Abstract class for a wrapper making particles for a Binary Swarm
 chance to have 1 in the binary construction}
 
 \item{\code{suggestions}}{NULL or list with possible positions}
+
+\item{\code{generator}}{the Object to generate the particles}
 }
 \if{html}{\out{</div>}}
 }

@@ -2,6 +2,7 @@
 #'
 #' @description
 #' Abstract class for a particle
+#' @export
 R6::R6Class("Particle",
             public = list(
               #' @field position n-dimensional value which states the position
@@ -96,6 +97,7 @@ R6::R6Class("Particle",
 #' @description
 #' Abstract class for a particle with velocity.
 #' This inherits the functionality of a simple particle
+#' @export
 R6::R6Class("ParticleVelocity",
             inherit = Particle,
             public = list(
