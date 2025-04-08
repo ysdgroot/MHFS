@@ -39,6 +39,7 @@ variable_importance <- function(results,
   avg_when_used <- colSums(mat_test) / colSums(mat_test != 0)
   # case that the feature is never used
   avg_when_used[is.nan(avg_when_used)] <- 0
+  avg_when_used[is.na(avg_when_used)] <- 0
 
   # get the average result when variable is not used
   avg_not_used <- c()
@@ -47,7 +48,14 @@ variable_importance <- function(results,
 
     # average when the column is not used
     avg_not_used_iter <- mean(rowMaxs(matrix(mat_test[which(mat_test[,iter] == 0), ],
-                                             ncol = n_features)))
+                                             ncol = n_features)),
+                              na.rm = TRUE)
+    avg_not_used_iter <- ifelse(is.na(avg_not_used_iter) ||
+             is.nan(avg_not_used_iter) ||
+             is.null(avg_not_used_iter),
+           0,
+           avg_not_used_iter)
+
     avg_not_used <- c(avg_not_used,
                       avg_not_used_iter)
   }
